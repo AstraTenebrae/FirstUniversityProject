@@ -1,0 +1,149 @@
+<html>
+<head>
+<title> My First Page</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+<style>
+
+body{
+background-color: rgba(100, 100, 100, 0.5);
+}
+
+.container {
+  text-align: center;
+  color: cyan;
+ text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+#demo {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ font-family: "Sofia", sans-serif;
+font-size: 30px;
+color: blue;
+}
+
+@keyframes move {
+  0% {
+	  top: 30%;
+	  left: 30%;
+	  animation-timing-function: ease-out;
+  }
+  25% {
+	 
+	  top: 40%;
+	  left: 65%;
+	  animation-timing-function: ease-out;
+  }
+  40% {
+	  top: 60%;
+	  left: 80%;
+	  animation-timing-function: ease-out;
+  }
+  60% {
+	  top: 80%;
+	  left: 60%;
+  	  animation-timing-function: ease-out;
+  }
+  80 {
+	  top: 75%;
+	  left: 50%;
+	  animation-timing-function: ease-out;
+	  }
+  100% {
+	  top: 30%;
+	  left: 30%;
+	  animation-timing-function: ease-out;
+  }
+}
+
+
+
+#hello_image{
+
+   position: absolute;
+  top: 40%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  animation: move 2s 0.5s infinite;
+
+ -webkit-filter: drop-shadow(5px 5px 5px #4682B4);
+  filter: drop-shadow(5px 5px 5px #4682B4);
+}
+
+</style>
+<script>
+
+
+var btn =document.getElementById('hello_world');
+var object = document.getElementById('hello_image');
+
+var flag=false;
+
+function playAudio(url) {
+ 
+if (!flag){
+  var audio = new Audio(url);
+
+  
+  audio.loop=true;
+  audio.play();
+  flag=true;}
+
+}
+
+
+function movement(object){
+	var x = Math.floor(Math.random() * 1000);
+    var y = Math.floor(Math.random() * 500);
+	
+	object.animate({ top: x, left: y }, function(){
+      movement();        
+    });
+	
+}
+
+
+
+</script>
+</head>
+<body>
+
+
+<div class="container">
+
+<div id="hello_image">
+<img src="images/world.png" class="rotate" width=80% height=auto >
+
+</div>
+
+<div id="hello_world">
+<div class="centered"> 
+<h1 onclick="playAudio('Images/song.mp3')">Click, faster !</h1>
+</div>
+</div>
+
+</div>
+
+<p id="demo"></p>
+<script>
+
+document.getElementById("hello_image").addEventListener("click", function() {
+  document.getElementById("demo").innerHTML = "Congratulations, you clicked!";
+  movement(object);
+});
+</script>
+
+</body>
+</html>
