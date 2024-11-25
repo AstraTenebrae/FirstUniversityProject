@@ -1,0 +1,79 @@
+body{
+background-color: rgba(100, 100, 100, 0.5);
+}
+
+:root {
+	--animation-time: 2s;
+}
+
+.container {
+  text-align: center;
+  color: cyan;
+ text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+#demo {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ font-family: "Sofia", sans-serif;
+font-size: 30px;
+color: blue;
+}
+
+@keyframes move {
+  0% {
+	  top: 30%;
+	  left: 30%;
+	  animation-timing-function: ease-out;
+  }
+  25% {
+	 
+	  top: 30%;
+	  left: 65%;
+	  animation-timing-function: ease-out;
+  }
+  40% {
+	  top: 60%;
+	  left: 80%;
+	  animation-timing-function: ease-out;
+  }
+  60% {
+	  top: 80%;
+	  left: 60%;
+  	  animation-timing-function: ease-out;
+  }
+  80 {
+	  top: 75%;
+	  left: 50%;
+	  animation-timing-function: ease-out;
+	  }
+  100% {
+	  top: 30%;
+	  left: 30%;
+	  animation-timing-function: ease-out;
+  }
+}
+
+
+
+#hello_image{
+
+   position: absolute;
+  top: 40%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  animation: move var(--animation-time) 0.5s infinite;
+
+ -webkit-filter: drop-shadow(5px 5px 5px #4682B4);
+  filter: drop-shadow(5px 5px 5px #4682B4);
+}
